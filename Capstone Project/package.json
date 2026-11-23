@@ -1,0 +1,41 @@
+{
+  "name": "krmu-campus-events",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k -n api,web -c magenta,cyan \"npm:server\" \"npm:client\"",
+    "client": "vite",
+    "server": "node server/index.js",
+    "db:reset": "node server/index.js --reset",
+    "build": "vite build",
+    "start": "node server/index.js",
+    "lint": "oxlint",
+    "preview": "vite preview",
+    "setup": "npm install"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "express": "^4.22.3",
+    "jsonwebtoken": "^9.0.3",
+    "lucide-react": "^1.61.0",
+    "mongodb-memory-server": "^11.4.0",
+    "mongoose": "^9.12.3",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-router-dom": "^7.18.4"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "concurrently": "^10.0.6",
+    "oxlint": "^1.88.0",
+    "vite": "^8.3.4"
+  },
+  "description": "K.R. Mangalam University · Campus Events Portal (React + Express + MongoDB)",
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

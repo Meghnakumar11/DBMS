@@ -1,0 +1,109 @@
+=====================================================================
+  K.R. MANGALAM UNIVERSITY · CAMPUS EVENTS PORTAL
+  How to run this project on your computer
+=====================================================================
+
+You only need ONE thing installed: Node.js (version 20.19 or newer).
+No database installation is needed. MongoDB is downloaded on the first
+start and then starts automatically (internet is needed that one time).
+
+---------------------------------------------------------------------
+STEP 1 · Install Node.js (one time only)
+---------------------------------------------------------------------
+  1. Go to  https://nodejs.org
+  2. Download the "LTS" version and install it (just click Next).
+  3. Restart your computer if the installer asks you to.
+
+---------------------------------------------------------------------
+STEP 2 · Unzip the project
+---------------------------------------------------------------------
+  Right-click the zip → "Extract All" (Windows) or double-click it (Mac).
+  Put the "college-management" folder somewhere simple, for example
+  Desktop or Documents.
+  IMPORTANT: do not run it from inside the zip. Extract it first.
+
+---------------------------------------------------------------------
+STEP 3 · Start it
+---------------------------------------------------------------------
+  EASY WAY (double-click):
+    Windows → double-click  START-WINDOWS.bat
+    Mac     → double-click  START-MAC.command
+              (first time: right-click → Open → Open, because macOS
+               blocks downloaded scripts by default)
+
+  The first start takes 2–5 minutes (it downloads the libraries and
+  the MongoDB database it needs, about 300 MB). After that it starts
+  in a few seconds.
+  The browser opens automatically at:
+
+        http://localhost:5180
+
+  Keep the black terminal window open while you use the app.
+  To stop the app, press Ctrl + C in that window (or just close it).
+
+  MANUAL WAY (terminal / command prompt inside the folder):
+        npm install        ← first time only
+        npm run dev        ← every time
+  then open http://localhost:5180
+
+---------------------------------------------------------------------
+STEP 4 · Sign in
+---------------------------------------------------------------------
+  Starter accounts (created automatically on first start):
+
+    Admin      admin@college.edu        admin123
+    Organizer  meera.nair@college.edu   organizer123
+    Student    aarav.s@college.edu      student123
+
+  Please change these passwords after signing in
+  (top-right menu → My profile → Change password).
+
+---------------------------------------------------------------------
+USEFUL COMMANDS
+---------------------------------------------------------------------
+  npm run dev        start the app (website + server + database)
+  npm run db:reset   delete all data and reload the sample data
+  npm run build      make a production build
+  npm start          run the production build at http://localhost:5050
+
+---------------------------------------------------------------------
+TROUBLESHOOTING
+---------------------------------------------------------------------
+  "node is not recognized" / "command not found: node"
+      → Node.js is not installed, or the computer needs a restart
+        after installing it.
+
+  "Port 5180 is already in use" or "EADDRINUSE 5050"
+      → Another copy is already running. Close the other terminal
+        window, or restart the computer.
+
+  The page says "Cannot reach the server"
+      → The terminal window was closed. Start the app again.
+
+  Windows shows "Windows protected your PC"
+      → Click "More info" → "Run anyway" (it is just the start script).
+
+  Antivirus / firewall asks about "mongod" or "node"
+      → Allow it. The database only listens on this computer.
+
+  The server prints a box saying "The server could not start"
+      → Read the lines inside the box: they show the real MongoDB
+        error and the fix. The most common ones:
+          * "MongoDB could not be downloaded" → the very first start
+            needs internet. Connect and start the app again.
+          * "Another copy of the app is already using the database"
+            → close the other terminal window.
+          * "A Windows system library is missing" → install the
+            Microsoft Visual C++ Redistributable (x64):
+            https://aka.ms/vs/17/release/vc_redist.x64.exe
+
+  Start completely fresh (wipe the database):
+      → Run  npm run db:reset  , or stop the app, delete the folder
+        server/.mongodata  and start again.
+
+  Use your own MongoDB (local install or MongoDB Atlas) instead:
+      → Create a file named .env containing
+        MONGODB_URI=mongodb://localhost:27017/campus_events
+
+Tech stack: React + Vite (frontend), Node.js + Express (backend),
+MongoDB 8 with Mongoose (database), JWT + bcrypt (authentication).
