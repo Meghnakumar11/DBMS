@@ -1,4 +1,5 @@
 # K.R. Mangalam University · Campus Events Portal
+https://web-production-53633ce2.up.railway.app/
 
 A web application to manage college events and maintain records of students, event
 categories, venues, organizers, registrations, attendance and feedback.
